@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour {
 
   public float PitchSpeed = 0.25f;
 
+  public float MouseTurnSpeed = 2.0f;
+  public float MousePitchSpeed = 1.0f;
+
+  private Vector2 mouseOffset;
+
   private Rigidbody rb;
 
   void Start() {
@@ -37,21 +42,32 @@ public class PlayerController : MonoBehaviour {
     rb = GetComponent<Rigidbody>();
   }
 
+  void Update() {
+    mouseOffset = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+    mouseOffset.x -= 0.5f;
+    mouseOffset.x *= MouseTurnSpeed;
+    mouseOffset.y -= 0.5f;
+    mouseOffset.y *= MousePitchSpeed;
+  }
+
   void FixedUpdate() {
     if (Input.GetKey(KeyCode.W)) {
-      currentAltitude = Mathf.Max(currentAltitude - PitchSpeed, minAltitude);
+      currentAltitude -= PitchSpeed;
     } else if (Input.GetKey(KeyCode.S)) {
-      currentAltitude = Mathf.Min(currentAltitude + PitchSpeed, maxAltitude);
+      currentAltitude += PitchSpeed;
     }
+
+    currentAltitude = Mathf.Clamp(currentAltitude + mouseOffset.y, minAltitude, maxAltitude);
 
     var targetPosition = (transform.position + transform.forward * 5.0f).normalized * currentAltitude;
     if (Input.GetKey(KeyCode.A)) {
       targetPosition += transform.right * -TurnSpeed;
     } else if (Input.GetKey(KeyCode.D)) {
       targetPosition += transform.right * TurnSpeed;
+    } else {
+      targetPosition += transform.right * mouseOffset.x;
     }
 
-    Debug.DrawLine(transform.position, targetPosition);
     var dir = targetPosition - transform.position;
     var targetRotation = Quaternion.LookRotation(dir, transform.position.normalized);
 

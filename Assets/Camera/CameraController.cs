@@ -15,13 +15,15 @@ public class CameraController : MonoBehaviour {
   private Vector3 positionOffset;
   private Quaternion rotationOffset;
 
+  private Vector3 moveVelocity;
+
   void Start() {
     positionOffset = transform.position - Target.position;
     rotationOffset = Quaternion.Inverse(Target.rotation) * transform.rotation;
   }
 
-	void FixedUpdate () {
-    transform.position = Vector3.Lerp(transform.position, Target.TransformPoint(positionOffset + PositionOffset), FollowSpeed);
-    transform.rotation = Quaternion.Slerp(transform.rotation, Target.rotation * rotationOffset * Quaternion.Euler(RotationOffset), TurnSpeed);
+	void LateUpdate () {
+    transform.position = Vector3.SmoothDamp(transform.position, Target.TransformPoint(positionOffset + PositionOffset), ref moveVelocity, FollowSpeed * Time.deltaTime);
+    transform.rotation = Quaternion.Slerp(transform.rotation, Target.rotation * rotationOffset * Quaternion.Euler(RotationOffset), TurnSpeed * Time.deltaTime);
 	}
 }
