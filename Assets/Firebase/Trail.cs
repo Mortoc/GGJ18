@@ -8,11 +8,13 @@ public class Trail
     public string playerName;
     public int trackId;
     public List<TrailPos> path = new List<TrailPos>();
+    public string trailId;
 
-    public Trail(string name, int id)
+    public Trail(string name, int id, string tId)
     {
         playerName = name;
         trackId = id;
+        trailId = tId;
     }
 }
 
