@@ -265,9 +265,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114741480550792168, guid: 6150869338f2649ae857b4eee4fea84c,
+        type: 2}
+      propertyPath: Planet
+      value: 
+      objectReference: {fileID: 1301695634}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6150869338f2649ae857b4eee4fea84c, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1301695634 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114625946122490646, guid: 13c75024148b0364baed04e73af63448,
+    type: 2}
+  m_PrefabInternal: {fileID: 1321611061}
+  m_Script: {fileID: 11500000, guid: e425f3248c9144aacb6f210c1f03cb5c, type: 3}
 --- !u!1001 &1321611061
 Prefab:
   m_ObjectHideFlags: 0
