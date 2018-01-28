@@ -7,8 +7,10 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: neck fethers top.001
+    100004: FULL BIRD MESH
     400000: //RootNode
     400002: neck fethers top.001
+    400004: FULL BIRD MESH
     2100000: Feather MAt for real
     2100002: fuschia
     2100004: off white
@@ -16,9 +18,15 @@ ModelImporter:
     2100008: AllMat
     2100010: Beak and legs
     2100012: regular grey
+    2100014: GLOW
     2300000: neck fethers top.001
+    2300002: //RootNode
+    2300004: FULL BIRD MESH
     3300000: neck fethers top.001
+    3300002: //RootNode
+    3300004: FULL BIRD MESH
     4300000: neck fethers top.001
+    4300002: FULL BIRD MESH
   externalObjects: {}
   materials:
     importMaterials: 1
