@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 44261c301362275419e7714e3e051c3c
-timeCreated: 1517109438
+timeCreated: 1517118213
 licenseType: Free
 SubstanceImporter:
   externalObjects: {}
@@ -17,7 +17,7 @@ SubstanceImporter:
     inputs:
     - name: $randomseed
       value:
-        scalar[0]: 1157
+        scalar[0]: 7984
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
