@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour {
       targetPosition += transform.right * mouseOffset.x;
     }
 
-    var dir = targetPosition - transform.position;
+    var dir = (targetPosition - transform.position).normalized;
     var targetRotation = Quaternion.LookRotation(dir, transform.position.normalized);
 
 
