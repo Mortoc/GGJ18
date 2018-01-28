@@ -8,7 +8,7 @@ using Firebase.Unity.Editor;
 using System.Linq;
 
 public class TrailLoader : MonoBehaviour {
-    private int trailExpirationInSeconds = 300; // 5 min (test)
+    private int trailExpirationInSeconds = 30; // 5 min (test)
 
     [SerializeField]
     private List<Trail> trailData = new List<Trail>();
@@ -32,10 +32,13 @@ public class TrailLoader : MonoBehaviour {
             else if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                var trails = (IDictionary)snapshot.Child("trails").Value;
-                foreach(Dictionary<string, object> trail in trails.Values)
+                var trailDict = (IDictionary)snapshot.Child("trails").Value;
+                List<string> trailKeys = new List<string>((IEnumerable<string>)trailDict.Keys);
+                List<object> trails = new List<object>((IEnumerable<object>)trailDict.Values);
+                for (var i = 0; i < trails.Count; ++i)
                 {
-                    var trailDatum = new Trail(trail["playerName"].ToString(), Convert.ToInt32(trail["trackId"]));
+                    Dictionary<string, object> trail = (Dictionary<string, object>)trails[i];
+                    var trailDatum = new Trail(trail["playerName"].ToString(), Convert.ToInt32(trail["trackId"]), trailKeys[i]);
                     var path = new List<TrailPos>();
                     foreach(Dictionary<string, object> p in (IList)trail["path"])
                     {
@@ -80,7 +83,18 @@ public class TrailLoader : MonoBehaviour {
             } else
             {
                 // CULL HERE
-                Debug.Log("We should delete " + trailDatum.playerName + "'s trail it's tooooo old");
+                Debug.Log("We should delete " + trailDatum.playerName + "'s trail it's tooooo old: "+ trailDatum.trailId);
+                FirebaseDatabase.DefaultInstance.RootReference.Child("trails").Child(trailDatum.trailId).RemoveValueAsync().ContinueWith(task =>
+                {
+                    if (task.IsFaulted)
+                    {
+                        Debug.Log("could not delete (maybe someone beat us to it? it's not like corey concurrency proofed this or anything)");
+                    }
+                    else if (task.IsCompleted)
+                    {
+                        Debug.Log(trailDatum.trailId + " deleted!");
+                    }
+                });
             }
         }
     }

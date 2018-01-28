@@ -8,34 +8,43 @@ using Firebase.Unity.Editor;
 
 public class BeatSync : MonoBehaviour
 {
-    public float syncInterval = 5f;
-    public string trailName = "test";
-    public int trackId = 0;
+    private float syncInterval = 0.5f;
+    private string trailName = "test";
+    private int trackId = 0;
 
     private Trail trailData;
     private Guid trailId;
     private DatabaseReference dbRef;
+    private bool syncEnded = false;
 
     void Start()
     {
-        trailId = Guid.NewGuid();
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://ggj18-22f1e.firebaseio.com/");
         dbRef = FirebaseDatabase.DefaultInstance.RootReference;
 
-        //StartSync();
+        StartSync();
     }
 
     public void StartSync()
     {
-        trailData = new Trail(trailName, trackId);
+        trailId = Guid.NewGuid();
+        trailData = new Trail(trailName, trackId, trailId.ToString());
         StartCoroutine(SyncAndWait());
+    }
+
+    public void EndSync()
+    {
+        syncEnded = true;
     }
 
     IEnumerator SyncAndWait()
     {
-        trailData.path.Add(new TrailPos(transform.position));
-        dbRef.Child("trails").Child(trailId.ToString()).SetRawJsonValueAsync(JsonUtility.ToJson(trailData));
-        yield return new WaitForSeconds(syncInterval);
-        StartCoroutine(SyncAndWait());
+        while (!syncEnded)
+        {
+            trailData.path.Add(new TrailPos(transform.position));
+            dbRef.Child("trails").Child(trailId.ToString()).SetRawJsonValueAsync(JsonUtility.ToJson(trailData));
+            yield return new WaitForSeconds(syncInterval);
+        }
+        syncEnded = false;
     }
 }
