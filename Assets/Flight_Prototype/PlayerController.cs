@@ -80,9 +80,10 @@ public class PlayerController : MonoBehaviour {
   }
 
   void OnParticleCollision(GameObject other) {
+    Debug.Log(other.name);
     if (other.tag == "FunkWind") {
       if (!instrumentList.ContainsKey(other.name)) { 
-        var funkWind = other.GetComponent<FunkWind>();
+        var funkWind = other.GetComponentInParent<FunkWind>();
         var instrument = Instantiate(funkWind.instrumentPrefab, transform);
         instrumentList.Add(other.name, instrument);
       } else {

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4742776329542134}
   - component: {fileID: 33270480779847700}
   - component: {fileID: 23044136270637918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: '[DJ_FeatherBeat_Prefab]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,10 @@ GameObject:
   - component: {fileID: 54464548901233162}
   - component: {fileID: 135471236166604890}
   - component: {fileID: 114290708003037604}
-  m_Layer: 0
+  - component: {fileID: 81393947642165690}
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +138,13 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!81 &81393947642165690
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456290580483330}
+  m_Enabled: 1
 --- !u!114 &114290708003037604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,5 +190,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.17
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}

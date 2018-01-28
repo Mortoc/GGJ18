@@ -5958,7 +5958,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.9
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6001,7 +6001,7 @@ ParticleSystem:
     radiusScale: 5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 256
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
