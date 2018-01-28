@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 135471236166604890}
   - component: {fileID: 114290708003037604}
   - component: {fileID: 81393947642165690}
+  - component: {fileID: 182291521404753166}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -93,10 +94,10 @@ MeshRenderer:
   - {fileID: 2100000, guid: 5879dcfccd060e843abb9c11626e9267, type: 2}
   - {fileID: 2100000, guid: 95055e88490b5f549a5085e8465c67fd, type: 2}
   - {fileID: 2100000, guid: eee6b0622f2419e4790417f813d89c5e, type: 2}
-  - {fileID: 2100008, guid: 03f1182aaa9596b47a8c304b2e31faf9, type: 3}
+  - {fileID: 2100000, guid: eee6b0622f2419e4790417f813d89c5e, type: 2}
   - {fileID: 2100000, guid: eb733716c59dc6f409e03849e1dd2a24, type: 2}
   - {fileID: 2100000, guid: b5ba5d7261da73b4ea6da29471f470df, type: 2}
-  - {fileID: 2100012, guid: 03f1182aaa9596b47a8c304b2e31faf9, type: 3}
+  - {fileID: 2100000, guid: eee6b0622f2419e4790417f813d89c5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,9 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0c2152d1ef6584ea0d27d8da648c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncInterval: 5
-  trailName: test
-  trackId: 0
 --- !u!114 &114741480550792168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,15 +168,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a02ae0b0418542f8b5fb4871cd82ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseMoveSpeed: 400
-  BaseRotateSpeed: 0.015
-  MinAltitudeOffset: 1
-  MaxAltitudeOffset: 35
+  BaseMoveSpeed: 10
+  BaseRotateSpeed: 10
+  MinAltitudeOffset: 2
+  MaxAltitudeOffset: 10
   Planet: {fileID: 0}
-  TurnSpeed: 2
-  PitchSpeed: 0.05
-  MouseTurnSpeed: 10
-  MousePitchSpeed: 0.15
+  TurnSpeed: 0.5
+  PitchSpeed: 0.25
+  MouseTurnSpeed: 2
+  MousePitchSpeed: 1
   InstrumentPowerIncrement: 1
 --- !u!135 &135471236166604890
 SphereCollider:
@@ -192,3 +190,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!182 &182291521404753166
+WindZone:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456290580483330}
+  m_Enabled: 1
+  m_Mode: 1
+  m_Radius: 50
+  m_WindMain: 100
+  m_WindTurbulence: 1
+  m_WindPulseMagnitude: 0.5
+  m_WindPulseFrequency: 0.01

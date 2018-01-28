@@ -80,16 +80,22 @@ public class PlayerController : MonoBehaviour {
   }
 
   void OnParticleCollision(GameObject other) {
-    Debug.Log(other.name);
     if (other.tag == "FunkWind") {
       if (!instrumentList.ContainsKey(other.name)) { 
         var funkWind = other.GetComponentInParent<FunkWind>();
         var instrument = Instantiate(funkWind.instrumentPrefab, transform);
+        instrument.Setup(this);
         instrumentList.Add(other.name, instrument);
       } else {
         var instrument = instrumentList[other.name];
         instrument.AddPower(InstrumentPowerIncrement);
       }
+    }
+  }
+
+  public void RemoveInstrument(instrument instrument) {
+    if (instrumentList.ContainsKey(instrument.name)) {
+      instrumentList.Remove(instrument.name);
     }
   }
 }
