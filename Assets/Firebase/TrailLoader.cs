@@ -15,6 +15,14 @@ public class TrailLoader : MonoBehaviour {
 
     [SerializeField]
     private GameObject trailPrefab;
+    [SerializeField]
+    private GameObject soundObjectPrefab;
+
+    private Dictionary<int, string> trackIdLookup = new Dictionary<int, string>()
+    {
+        { 0, "vinyl_test" }
+    };
+    private List<AudioClip> tracks = new List<AudioClip>();
 
     private DateTime toUtcNow(long ts)
     {
@@ -22,6 +30,12 @@ public class TrailLoader : MonoBehaviour {
     }
 
     void Start() {
+        // preload tracks at start
+        foreach(var tidlu in trackIdLookup)
+        {
+            tracks.Add(Resources.Load<AudioClip>(tidlu.Value));
+        }
+
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://ggj18-22f1e.firebaseio.com/");
 
         FirebaseDatabase.DefaultInstance.RootReference.GetValueAsync().ContinueWith(task => {
@@ -76,6 +90,13 @@ public class TrailLoader : MonoBehaviour {
                 lineRenderer.positionCount = visibleTrailData.Count;
                 for (var i = 0; i < visibleTrailData.Count; ++i)
                 {
+                    var soundObj = Instantiate(soundObjectPrefab);
+                    soundObj.name = "sound"+i;
+                    soundObj.transform.parent = go.transform;
+                    soundObj.transform.position = visibleTrailData[i].position;
+                    var audio = soundObj.GetComponent<AudioSource>();
+                    audio.clip = tracks[trailDatum.trackId];
+                    audio.Play();
                     lineRenderer.SetPosition(i, visibleTrailData[i].position);
                 }
                 prev = new Color(UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f), UnityEngine.Random.Range(0f, 1f));
