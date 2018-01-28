@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &1020197217 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4122899727176380, guid: 6150869338f2649ae857b4eee4fea84c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1077782538}
 --- !u!1 &1038624846
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d83563f5a7547e6957e7eddc5dc96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  Target: {fileID: 1020197217}
   PositionOffset: {x: 0, y: 1, z: 0}
   RotationOffset: {x: 0, y: 0, z: 0}
   FollowSpeed: 12
