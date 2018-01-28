@@ -30,10 +30,7 @@ public class StepSequencer : MonoBehaviour
         return _steps;
     }
 #endif
-	private void Awake()
-	{
-		Metronome.Instance = FindObjectOfType<Metronome> ();
-	}
+
     private void OnEnable()
     {
         if (Metronome.Instance != null)

@@ -15,6 +15,7 @@ public class instrument : MonoBehaviour {
   void Update() {
     if (player) {
       currentPower -= Time.deltaTime;
+      Debug.Log(currentPower);
 
       if (currentPower <= 0.0f) {
         player.RemoveInstrument(this);
