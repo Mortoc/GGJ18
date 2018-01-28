@@ -74,4 +74,8 @@ public class PlayerController : MonoBehaviour {
 
     rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, BaseRotateSpeed));
   }
+
+  void OnParticleCollision(GameObject other) {
+    Debug.Log("Ran into " + other.name);
+  }
 }
