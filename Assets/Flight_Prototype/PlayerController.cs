@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 
   private float currentAltitude;
 
-  public Transform Planet;
+  public Planet Planet;
 
   private float rotation = 0.0f;
 
@@ -31,10 +31,8 @@ public class PlayerController : MonoBehaviour {
   private Rigidbody rb;
 
   void Start() {
-    var planetCollider = Planet.GetComponent<SphereCollider>();
-    var planetRadius = planetCollider.radius * Planet.localScale.x;
-    minAltitude = planetRadius + MinAltitudeOffset;
-    maxAltitude = planetRadius + MaxAltitudeOffset;
+    minAltitude = Planet.Radius + MinAltitudeOffset;
+    maxAltitude = Planet.Radius + MaxAltitudeOffset;
 
     currentAltitude = Mathf.Lerp(minAltitude, maxAltitude, 0.5f);
     transform.position = new Vector3(0.0f, currentAltitude, 0.0f);

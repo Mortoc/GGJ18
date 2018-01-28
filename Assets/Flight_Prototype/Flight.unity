@@ -238,7 +238,7 @@ MonoBehaviour:
   BaseRotateSpeed: 0.025
   MinAltitudeOffset: 3
   MaxAltitudeOffset: 20
-  Planet: {fileID: 1301695630}
+  Planet: {fileID: 1301695634}
   TurnSpeed: 2
   PitchSpeed: 0.05
   MouseTurnSpeed: 10
@@ -250,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 851276416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 220, z: 0}
+  m_LocalPosition: {x: 0, y: 5075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1787996982}
@@ -268,8 +268,9 @@ GameObject:
   - component: {fileID: 1301695633}
   - component: {fileID: 1301695632}
   - component: {fileID: 1301695631}
+  - component: {fileID: 1301695634}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,6 +342,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1301695629}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1301695634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301695629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e425f3248c9144aacb6f210c1f03cb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinRadius: 400
+  MaxRadius: 700
 --- !u!1 &1665826030
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,8 +431,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1665826030}
-  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 221, z: -7}
+  m_LocalRotation: {x: 0.08715578, y: -0, z: -0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 5076.66, z: -5.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -448,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 851276420}
-  PositionOffset: {x: 0, y: -4, z: 0}
+  PositionOffset: {x: 0, y: 1, z: 0}
   RotationOffset: {x: 0, y: 0, z: 0}
   FollowSpeed: 12
   TurnSpeed: 5

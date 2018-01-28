@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour {
 
   private Vector3 moveVelocity;
 
-  void Start() {
+  void Awake() {
     positionOffset = transform.position - Target.position;
     rotationOffset = Quaternion.Inverse(Target.rotation) * transform.rotation;
   }
