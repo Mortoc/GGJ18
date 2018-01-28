@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour {
   }
 
   void OnParticleCollision(GameObject other) {
-    Debug.Log("Ran into " + other.name);
+    if (other.tag == "FunkWind") {
+      //Let the funk flow
+    }
   }
 }
