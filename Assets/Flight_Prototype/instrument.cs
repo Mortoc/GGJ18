@@ -8,10 +8,9 @@ public class instrument : MonoBehaviour {
 	public float orbitDistance = 10.0f;
 	public float orbitSpeed = 180f;
 
-	// Use this for initialization
-	void Awake () {
-		
-	}
+  public void AddPower(float power) {
+    Debug.Log("Added Power");
+  }
 
 	public void Setup(beetDropper player) {
 		this.player = player;

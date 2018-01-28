@@ -20,6 +20,8 @@ public class FunkWind : MonoBehaviour {
   private float ySeed;
   private float zSeed;
 
+  public instrument instrumentPrefab;
+
   public void Setup(Planet planet) {
     this.planet = planet;
     minAltitude = planet.Radius + MinAltitudeOffset;

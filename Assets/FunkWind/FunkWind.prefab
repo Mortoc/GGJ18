@@ -88,6 +88,8 @@ MonoBehaviour:
   MaxAltitudeOffset: 30
   Speed: 8
   RandomSpeed: 0.1
+  instrumentPrefab: {fileID: 114294727240665724, guid: 4dee1d4aa46d14937a41ed03d05a3b54,
+    type: 2}
 --- !u!198 &198367411788759102
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -148,7 +150,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 510972863
+  randomSeed: -686487724
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3509,7 +3511,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1803568361
+  randomSeed: -1789957719
   InitialModule:
     serializedVersion: 3
     enabled: 1

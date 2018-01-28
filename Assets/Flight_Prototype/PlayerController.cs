@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour {
 
   private Rigidbody rb;
 
+  private readonly Dictionary<string, instrument> instrumentList = new Dictionary<string, instrument>();
+
+  public float InstrumentPowerIncrement = 1.0f;
+
   void Start() {
     minAltitude = Planet.Radius + MinAltitudeOffset;
     maxAltitude = Planet.Radius + MaxAltitudeOffset;
@@ -77,7 +81,14 @@ public class PlayerController : MonoBehaviour {
 
   void OnParticleCollision(GameObject other) {
     if (other.tag == "FunkWind") {
-      //Let the funk flow
+      if (!instrumentList.ContainsKey(other.name)) { 
+        var funkWind = other.GetComponent<FunkWind>();
+        var instrument = Instantiate(funkWind.instrumentPrefab, transform);
+        instrumentList.Add(other.name, instrument);
+      } else {
+        var instrument = instrumentList[other.name];
+        instrument.AddPower(InstrumentPowerIncrement);
+      }
     }
   }
 }

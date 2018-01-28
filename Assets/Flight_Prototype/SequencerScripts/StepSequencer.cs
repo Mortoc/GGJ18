@@ -18,8 +18,6 @@ public class StepSequencer : MonoBehaviour
 
     public bool Suspend;
 
-    [SerializeField] private Metronome _metronome;
-
     // hide this field in the inspector. We'll be making a custom inspector for these
     [SerializeField, HideInInspector] private List<Step> _steps;
 
@@ -34,22 +32,22 @@ public class StepSequencer : MonoBehaviour
 #endif
 	private void Awake()
 	{
-		_metronome = FindObjectOfType<Metronome> ();
+		Metronome.Instance = FindObjectOfType<Metronome> ();
 	}
     private void OnEnable()
     {
-        if (_metronome != null)
+        if (Metronome.Instance != null)
         {
-            _metronome.Ticked += HandleTicked;
+            Metronome.Instance.Ticked += HandleTicked;
         }
 
     }
 
     private void OnDisable()
     {
-        if (_metronome != null)
+        if (Metronome.Instance != null)
         {
-            _metronome.Ticked -= HandleTicked;
+            Metronome.Instance.Ticked -= HandleTicked;
         }
     }
 
