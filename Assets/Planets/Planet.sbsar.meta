@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 44261c301362275419e7714e3e051c3c
-timeCreated: 1517173742
+timeCreated: 1517176075
 licenseType: Free
 SubstanceImporter:
   externalObjects: {}
@@ -17,7 +17,7 @@ SubstanceImporter:
     inputs:
     - name: $randomseed
       value:
-        scalar[0]: 7732
+        scalar[0]: 2763
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -69,7 +69,7 @@ SubstanceImporter:
       - _GlossMapScale: 1
       - _Glossiness: 0.565
       - _GlossyReflections: 1
-      - _Height: 0.05
+      - _Height: 0.01
       - _Metallic: 0
       - _Mode: 0
       - _OcclusionStrength: 1
@@ -133,7 +133,7 @@ SubstanceImporter:
       buildTarget: 
       textureWidth: 512
       textureHeight: 512
-      textureFormat: 0
+      textureFormat: 2
       loadingBehavior: 1
   deletedPrototypes: []
   userData: 
