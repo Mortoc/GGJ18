@@ -498,6 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailData: []
+  trailPrefab: {fileID: 1964981579550354, guid: aaec3cf14548dff4fac008b267ac7c09,
+    type: 2}
 --- !u!1 &1787996981
 GameObject:
   m_ObjectHideFlags: 0
