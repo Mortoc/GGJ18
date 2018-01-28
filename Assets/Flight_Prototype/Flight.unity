@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 851276419}
   - component: {fileID: 851276418}
   - component: {fileID: 851276417}
+  - component: {fileID: 851276421}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -234,15 +235,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a02ae0b0418542f8b5fb4871cd82ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseMoveSpeed: 600
-  BaseRotateSpeed: 0.025
+  BaseMoveSpeed: 400
+  BaseRotateSpeed: 0.015
   MinAltitudeOffset: 1
   MaxAltitudeOffset: 35
   Planet: {fileID: 1301695634}
   TurnSpeed: 2
   PitchSpeed: 0.05
   MouseTurnSpeed: 10
-  MousePitchSpeed: 0.25
+  MousePitchSpeed: 0.15
 --- !u!4 &851276420
 Transform:
   m_ObjectHideFlags: 0
@@ -257,6 +258,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &851276421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 851276416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0c2152d1ef6584ea0d27d8da648c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncInterval: 5
+  trailName: test
+  trackId: 0
 --- !u!1 &1301695629
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,51 +370,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinRadius: 400
   MaxRadius: 700
+  MaxFunk: 200
   FunkWindPrefabs:
   - {fileID: 114825913944718146, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-  MaxFunk: 200
---- !u!1001 &1605139467
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4122745479647594, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122745479647594, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122745479647594, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122745479647594, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122745479647594, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122745479647594, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122745479647594, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122745479647594, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: d3012b050470c455bad51dd3f0647bf4, type: 2}
-  m_IsPrefabParent: 0
+  FunkWindCount: 6
 --- !u!1 &1665826030
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +387,7 @@ GameObject:
   - component: {fileID: 1665826031}
   - component: {fileID: 1665826035}
   - component: {fileID: 1665826036}
+  - component: {fileID: 1665826037}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -511,6 +486,20 @@ MonoBehaviour:
   RotationOffset: {x: 0, y: 0, z: 0}
   FollowSpeed: 12
   TurnSpeed: 5
+--- !u!114 &1665826037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665826030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c6f4cbb9b5c1143a64e5f94668cad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailData: []
+  trailPrefab: {fileID: 1964981579550354, guid: aaec3cf14548dff4fac008b267ac7c09,
+    type: 2}
 --- !u!1 &1787996981
 GameObject:
   m_ObjectHideFlags: 0
