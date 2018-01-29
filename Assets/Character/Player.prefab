@@ -168,13 +168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a02ae0b0418542f8b5fb4871cd82ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseMoveSpeed: 300
+  BaseMoveSpeed: 350
   BaseRotateSpeed: 0.125
   MinAltitudeOffset: 2
   MaxAltitudeOffset: 35
   Planet: {fileID: 0}
-  TurnSpeed: 0.25
-  PitchSpeed: 0.125
   MouseTurnSpeed: 2
   MousePitchSpeed: 0.35
   InstrumentPowerIncrement: 0.1
