@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d7e95e91db1904434b17f8a3c27a0c6a
 timeCreated: 1517183602
 licenseType: Free
+=======
+guid: 06afe5fed29cd42de879463d10b6a105
+timeCreated: 1517180236
+licenseType: Pro
+>>>>>>> c821830853f875300a3d0db904041485b600c1f2
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -14,7 +20,11 @@ ModelImporter:
     9500000: //RootNode
   externalObjects: {}
   materials:
+<<<<<<< HEAD
     importMaterials: 1
+=======
+    importMaterials: 0
+>>>>>>> c821830853f875300a3d0db904041485b600c1f2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -39,6 +49,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
+<<<<<<< HEAD
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -49,18 +60,35 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+=======
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.125
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+>>>>>>> c821830853f875300a3d0db904041485b600c1f2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
+<<<<<<< HEAD
     weldVertices: 1
+=======
+    weldVertices: 0
+>>>>>>> c821830853f875300a3d0db904041485b600c1f2
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+<<<<<<< HEAD
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
@@ -68,6 +96,15 @@ ModelImporter:
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
+=======
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 2
+    normalCalculationMode: 4
+  importAnimation: 0
+>>>>>>> c821830853f875300a3d0db904041485b600c1f2
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -86,7 +123,11 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+<<<<<<< HEAD
   animationType: 2
+=======
+  animationType: 0
+>>>>>>> c821830853f875300a3d0db904041485b600c1f2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
