@@ -3,23 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class instrument : MonoBehaviour {
-	public beetDropper player;
-	public BoxCollider instrumentCollider;
-	public float orbitDistance = 10.0f;
-	public float orbitSpeed = 180f;
+  public float StartingPower = 25.0f;
 
-  public void AddPower(float power) {
-    Debug.Log("Added Power");
+  private float currentPower;
+  private PlayerController player;
+
+  void Awake() {
+    currentPower = StartingPower;
   }
 
-	public void Setup(beetDropper player) {
-		this.player = player;
-	}
+  void Update() {
+    if (player) {
+      currentPower -= Time.deltaTime;
+      Debug.Log(currentPower);
 
-	void Update() {
-		if (player) {
-			transform.position = player.transform.position + (transform.position - player.transform.position).normalized * orbitDistance;
-			transform.RotateAround(player.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
-		}
-	}
+      if (currentPower <= 0.0f) {
+        player.RemoveInstrument(this);
+        Destroy(gameObject);
+      }
+    }
+  }
+
+  public void Setup(PlayerController player) {
+    this.player = player;
+  }
+
+  public void AddPower(float power) {
+    currentPower += power;
+  }
 }	
